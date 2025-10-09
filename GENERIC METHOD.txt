@@ -1,0 +1,13 @@
+class GenDemo {
+
+    // Generic Method
+    public <T> void printData(T data) {
+        System.out.println(data);
+    }
+
+    public static void main(String[] args) {
+        GenDemo gd = new GenDemo();
+        gd.<String>printData("Hello Generics");  // String type
+        gd.<Integer>printData(100);              // Integer type
+    }
+}

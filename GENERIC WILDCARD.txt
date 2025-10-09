@@ -1,0 +1,60 @@
+import java.util.*;
+
+public class WildcardFullDemo {
+
+    // 1️⃣ Unbounded wildcard (Koi bhi type, read-only)
+    public static void printList(List<?> list) {
+        System.out.print("List items: ");
+        for (Object obj : list) {
+            System.out.print(obj + " ");
+        }
+        System.out.println();
+    }
+
+    // 2️⃣ Upper bounded wildcard (Number + subclasses, read-only)
+    public static void sumNumbers(List<? extends Number> list) {
+        double sum = 0;
+        for (Number n : list) {
+            sum += n.doubleValue();
+        }
+        System.out.println("Sum: " + sum);
+    }
+
+    // 3️⃣ Lower bounded wildcard (Number + superclasses, write-only)
+    public static void addIntegers(List<? super Integer> list) {
+        list.add(10);
+        list.add(20);
+        System.out.println("Integers added to the list.");
+    }
+
+    public static void main(String[] args) {
+        // Example Lists
+        List<Integer> intList = new ArrayList<>(Arrays.asList(1, 2, 3));
+        List<Double> doubleList = new ArrayList<>(Arrays.asList(5.5, 4.5));
+        List<String> strList = new ArrayList<>(Arrays.asList("Hello", "Generics"));
+        List<Number> numList = new ArrayList<>();
+        List<Object> objList = new ArrayList<>();
+
+        // ✅ Unbounded wildcard
+        System.out.println("=== Unbounded Wildcard ===");
+        printList(strList);
+        printList(intList);
+
+        // ✅ Upper bounded wildcard
+        System.out.println("\n=== Upper Bounded Wildcard ===");
+        sumNumbers(intList);    // Works
+        sumNumbers(doubleList); // Works
+        // sumNumbers(strList); // ❌ Error: String is not a Number
+
+        // ✅ Lower bounded wildcard
+        System.out.println("\n=== Lower Bounded Wildcard ===");
+        addIntegers(numList);   // Works
+        addIntegers(objList);   // Works
+
+        System.out.print("numList after adding integers: ");
+        printList(numList);
+
+        System.out.print("objList after adding integers: ");
+        printList(objList);
+    }
+}

@@ -1,0 +1,19 @@
+import java.util.*;
+
+public class ListAssignment1 {
+    public static void main(String[] args) {
+        // List interface ka object ArrayList se create kiya
+        List<String> items = new ArrayList<>();
+
+        // Items add kar rahe hain
+        items.add("Apple");
+        items.add("Banana");
+        items.add("Mango");
+        items.add("Orange");
+
+        // For-each loop se print karna
+        for(String item : items) {
+            System.out.println(item);
+        }
+    }
+}

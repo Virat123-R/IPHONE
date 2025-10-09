@@ -1,0 +1,26 @@
+import java.util.*;
+
+public class ListAssignment2 {
+    public static void main(String[] args) {
+        // List create kar rahe hain
+        List<String> items = new ArrayList<>();
+        items.add("Apple");
+        items.add("Banana");
+        items.add("Mango");
+        items.add("Orange");
+
+        // ListIterator for forward traversal
+        ListIterator<String> itr = items.listIterator();
+
+        System.out.println("Forward Direction:");
+        while(itr.hasNext()) {
+            System.out.println(itr.next());
+        }
+
+        // ListIterator for backward traversal
+        System.out.println("Backward Direction:");
+        while(itr.hasPrevious()) {
+            System.out.println(itr.previous());
+        }
+    }
+}

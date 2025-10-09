@@ -1,0 +1,25 @@
+class Box<T> {
+    T value;
+
+    void set(T value) { 
+        this.value = value; 
+    }
+
+    T get() { 
+        return value; 
+    }
+}
+
+public class Main {
+    public static void main(String[] args) {
+        // Integer type Box
+        Box<Integer> intBox = new Box<>();
+        intBox.set(123);
+        System.out.println("Integer Value: " + intBox.get());
+
+        // String type Box
+        Box<String> strBox = new Box<>();
+        strBox.set("Hello");
+        System.out.println("String Value: " + strBox.get());
+    }
+}

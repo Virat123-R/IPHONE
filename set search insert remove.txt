@@ -1,0 +1,25 @@
+import java.util.*;
+
+public class SetDemo {
+    public static void main(String[] args) {
+        // a. Add items in the set
+        Set<String> s1 = new HashSet<>();
+        s1.add("a");
+        s1.add("b");
+        s1.add("c");
+        System.out.println("Set s1: " + s1);
+
+        // b. Insert items of one set into other set
+        Set<String> s2 = new HashSet<>(s1);
+        s2.add("d"); // new element in s2
+        System.out.println("Set s2 after adding s1 elements and 'd': " + s2);
+
+        // c. Remove items from the set
+        s2.remove("c");
+        System.out.println("Set s2 after removing 'c': " + s2);
+
+        // d. Search the specified item in the set
+        System.out.println("Does s1 contain 'b'? " + s1.contains("b"));
+        System.out.println("Does s2 contain 'c'? " + s2.contains("c"));
+    }
+}

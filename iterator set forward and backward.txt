@@ -1,0 +1,27 @@
+import java.util.*;
+
+public class Prac {
+    public static void main(String[] args) {
+        // Set of Strings
+        Set<String> s1 = new HashSet<>();
+        s1.add("a");
+        s1.add("b");
+        s1.add("c");
+
+        // Forward iteration using Iterator
+        System.out.println("Forward direction (Set):");
+        Iterator<String> itr1 = s1.iterator();
+        while (itr1.hasNext()) {
+            System.out.println(itr1.next());
+        }
+
+        // Convert Set to List for backward iteration
+        List<String> sList = new ArrayList<>(s1);
+        ListIterator<String> itr2 = sList.listIterator(sList.size());
+
+        System.out.println("Backward direction (List):");
+        while (itr2.hasPrevious()) {
+            System.out.println(itr2.previous());
+        }
+    }
+}
